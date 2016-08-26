@@ -14,25 +14,24 @@ namespace CompositePattern
              Person person1 = new Person() { Name= "Ram",Role="Team Lead" };
              Person person2 = new Person() { Name = "Laxman", Role = "Assistant Lead" };
              Person person3 = new Person() { Name = "Hanuman", Role = "Scrum Master" };
-             Group Developers = new Group() { Name = "Developers", Persons = new List<Person>() { new Person(){ Name="Sughrive",Role= "Developer"},new Person(){ Name="Neel",Role="Developer"},new Person(){ Role="Developer",Name="Nal"} } };
-             List<Person> Helpers = new List<Person>() { new Person(){Name="Vibhishan",Role = "Helper"},new Person(){ Name="Garuda",Role="Helper" }};
+             Group Developers = new Group() { Name = "Developers", Members = new List<IParty>() { new Person(){ Name="Sughrive",Role= "Developer"},new Person(){ Name="Neel",Role="Developer"},new Person(){ Role="Developer",Name="Nal"} } };
+             var Helpers = new Group() { Members = new List<IParty>() { new Person() { Name = "Vibhishan", Role = "Helper" }, new Person() { Name = "Garuda", Role = "Helper" } } };
 
 
-             List<IParty> lstParties = new List<IParty>() { person1,person2,person3,Developers};
-             lstParties.AddRange(Helpers);
 
-             foreach (var party in lstParties)
-             {
-                 party.GoldCount = totalGold/lstParties.Count;
-             }
-             foreach (var party in lstParties)
-                 party.Stats();
+             var Parties = new Group() { Members = new List<IParty>() { person1, person2, person3, Developers, Helpers } };
+
+             Parties.GoldCount = totalGold;
+             Parties.Stats();
+
+
+             Console.ReadLine();
 
         }
 
     }
 
-    interface IParty
+   public interface IParty
     {
         int GoldCount{get ;set;}
         void Stats();
@@ -63,7 +62,7 @@ namespace CompositePattern
     }
     public class Group:IParty
     {
-        public List<Person> Persons;
+        public List<IParty> Members;
         public string Name { get; set; }
 
 
@@ -71,15 +70,15 @@ namespace CompositePattern
         {
             get
             {
-                return Persons.Sum(e => e.GoldCount);
+                return Members.Sum(e => e.GoldCount);
             }
             set
             {
                 int totalCount = value;
-                int leftOver = value % Persons.Count;
-                foreach (var ind  in Persons)
+                int leftOver = value % Members.Count;
+                foreach (var ind  in Members)
                 {
-                    ind.GoldCount = (value / Persons.Count) + leftOver;
+                    ind.GoldCount = (value / Members.Count) + leftOver;
                     leftOver = 0;
                 }
             }
@@ -87,7 +86,7 @@ namespace CompositePattern
 
         public void Stats()
         {
-            foreach (var ind in Persons)
+            foreach (var ind in Members)
             {
                 ind.Stats();
             }

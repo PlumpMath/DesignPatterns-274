@@ -1,0 +1,6 @@
+F:\DesignPatterns\Facade\bin\Debug\Facade.exe.config
+F:\DesignPatterns\Facade\obj\Debug\Facade.csprojResolveAssemblyReference.cache
+F:\DesignPatterns\Facade\bin\Debug\Facade.exe
+F:\DesignPatterns\Facade\bin\Debug\Facade.pdb
+F:\DesignPatterns\Facade\obj\Debug\Facade.exe
+F:\DesignPatterns\Facade\obj\Debug\Facade.pdb
