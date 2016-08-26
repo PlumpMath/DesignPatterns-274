@@ -1,0 +1,1 @@
+F:\DesignPatterns\CompositePattern\bin\Debug\CompositePattern.exe.config
