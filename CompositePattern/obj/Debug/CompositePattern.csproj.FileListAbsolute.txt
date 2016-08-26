@@ -1,1 +1,6 @@
 F:\DesignPatterns\CompositePattern\bin\Debug\CompositePattern.exe.config
+F:\DesignPatterns\CompositePattern\obj\Debug\CompositePattern.csprojResolveAssemblyReference.cache
+F:\DesignPatterns\CompositePattern\bin\Debug\CompositePattern.exe
+F:\DesignPatterns\CompositePattern\bin\Debug\CompositePattern.pdb
+F:\DesignPatterns\CompositePattern\obj\Debug\CompositePattern.exe
+F:\DesignPatterns\CompositePattern\obj\Debug\CompositePattern.pdb
